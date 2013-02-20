@@ -1,3 +1,6 @@
+set nocompatible " Disable old vi compatibility
+
+" Enable pathogen for auto-modules
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
@@ -23,10 +26,6 @@ colorscheme solarized
 " Disregard these files for wildcard matches
 set wildignore=.git,.svn,*.swo,*.swp
 
-" Nerdtree
-autocmd vimenter * if !argc() | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
-
 " Autcompletion for a few file types
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -45,8 +44,11 @@ au BufRead,BufNewFile *.install set filetype=php
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " Generic key mapping
-:nmap \l :setlocal number!<CR>
-:nmap \o :set paste!<CR>
+:nmap <leader>l :setlocal number!<CR> " Toggle line numbers
+:nmap <leader>o :set paste!<CR>       " Toggle paste mode
+:nmap <C-e> :e#<CR>                   " Ctrl-e to toggle between last edited buffer and this one
+:nmap <C-n> :bnext<CR>                " Ctrl-n to jump to the next buffer
+:nmap <C-p> :bprev<CR>                " Ctrl-p to jump to the previous buffer
 
 " Configure search behaviour
 :set incsearch
@@ -54,4 +56,20 @@ au BufRead,BufNewFile *.md set filetype=markdown
 :set smartcase
 :set hlsearch
 :nmap \q :nohlsearch<CR>
+
+" Nerdtree Settings
+:nmap <leader>e :NERDTreeToggle<CR> " Toggle open on <leader>e
+
+" CtrlP Settings
+:let g:ctrlp_map = '<leader>t'                       " Open on <leader>t
+:let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$' " Don't scan VCS directories
+:let g:ctrlp_dotfiles = 0                            " Hide dotfiles
+:let g:ctrlp_clear_cache_on_exit = 0                 " Keep cache between sessions
+:nmap ; :CtrlPBuffer<CR>
+:nmap <leader>r ::CtrlPMRU<CR>
+
+" Powerline Settings
+set laststatus=2                          " Always show the statusline
+let g:Powerline_colorscheme='solarized16' " Use solarized colours
+let g:Powerline_symbols='unicode'         " Use unicode symbols
 
