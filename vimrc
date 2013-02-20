@@ -6,11 +6,12 @@ filetype plugin indent on
 " Enable omni completion
 set ofu=syntaxcomplete#Complete 
 
-syn on
-set fileencodings=utf-8,default,latin1
+" Generic config
+syntax on                               " Enable syntax highlighting
+set fileencodings=utf-8,default,latin1  " Set file encoding priorities
 set expandtab                           " use spaces, not tabs
-set tabstop=4                           " tabstops of 8
-set shiftwidth=4                        " indents of 8
+set tabstop=4                           " tabstops of 4
+set shiftwidth=4                        " indents of 4
 set autoindent smartindent              " turn on auto/smart indenting
 set smarttab                            " make <tab> and <backspace> smarter
 set backspace=eol,start,indent          " allow backspacing over indent, eol, & start
@@ -22,11 +23,11 @@ colorscheme solarized
 " Disregard these files for wildcard matches
 set wildignore=.git,.svn,*.swo,*.swp
 
-" Nedtree
+" Nerdtree
 autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
-" Autcomplete... @todo figure out usage
+" Autcompletion for a few file types
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -43,7 +44,14 @@ au BufRead,BufNewFile *.module set filetype=php
 au BufRead,BufNewFile *.install set filetype=php
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" Key mapping
+" Generic key mapping
 :nmap \l :setlocal number!<CR>
 :nmap \o :set paste!<CR>
+
+" Configure search behaviour
+:set incsearch
+:set ignorecase
+:set smartcase
+:set hlsearch
+:nmap \q :nohlsearch<CR>
 
