@@ -44,11 +44,12 @@ au BufRead,BufNewFile *.install set filetype=php
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " Generic key mapping
-:nmap <leader>l :setlocal number!<CR> " Toggle line numbers
-:nmap <leader>o :set paste!<CR>       " Toggle paste mode
-:nmap <C-e> :e#<CR>                   " Ctrl-e to toggle between last edited buffer and this one
-:nmap <C-n> :bnext<CR>                " Ctrl-n to jump to the next buffer
-:nmap <C-p> :bprev<CR>                " Ctrl-p to jump to the previous buffer
+:nmap <leader>l :setlocal number!<CR>  " Toggle line numbers
+:nmap <leader>o :set paste!<CR>        " Toggle paste mode
+:nmap <C-e> :e#<CR>                    " Ctrl-e to toggle between last edited buffer and this one
+:nmap <C-n> :bnext<CR>                 " Ctrl-n to jump to the next buffer
+:nmap <C-p> :bprev<CR>                 " Ctrl-p to jump to the previous buffer
+:nnoremap <leader>l :ls<cr>:b<space>
 
 " Configure search behaviour
 :set incsearch
@@ -65,6 +66,8 @@ au BufRead,BufNewFile *.md set filetype=markdown
 :let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$' " Don't scan VCS directories
 :let g:ctrlp_dotfiles = 0                            " Hide dotfiles
 :let g:ctrlp_clear_cache_on_exit = 0                 " Keep cache between sessions
+:let g:ctrlp_working_path_mode = 0                   " Disable project root detection
+:let g:ctrlp_match_window_reversed = 0               " Show best match at the top, not the bottom
 :nmap ; :CtrlPBuffer<CR>
 :nmap <leader>r ::CtrlPMRU<CR>
 
