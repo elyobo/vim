@@ -18,6 +18,7 @@ set shiftwidth=4                        " indents of 4
 set autoindent smartindent              " turn on auto/smart indenting
 set smarttab                            " make <tab> and <backspace> smarter
 set backspace=eol,start,indent          " allow backspacing over indent, eol, & start
+set foldlevel=99                        " start with folds open
 
 " Set up the colour scheme
 set background=dark
@@ -72,7 +73,12 @@ au BufRead,BufNewFile *.md set filetype=markdown
 :nmap <leader>r ::CtrlPMRU<CR>
 
 " Powerline Settings
-set laststatus=2                          " Always show the statusline
-let g:Powerline_colorscheme='solarized16' " Use solarized colours
-let g:Powerline_symbols='unicode'         " Use unicode symbols
+:set laststatus=2                          " Always show the statusline
+:let g:Powerline_colorscheme='solarized16' " Use solarized colours
+:let g:Powerline_symbols='unicode'         " Use unicode symbols
 
+" PIV Configuration
+:let g:DisableAutoPHPFolding = 1           " Disable auto folding of PHP classes/methods/etc
+
+" Syntastic Configuration
+:let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2' " Force Symfony2 standard

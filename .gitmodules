@@ -37,3 +37,12 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/PIV"]
+	path = bundle/PIV
+	url = https://github.com/spf13/PIV.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundles/matchit"]
+	path = bundles/matchit
+	url = https://github.com/tmhedberg/matchit.git
