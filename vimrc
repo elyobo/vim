@@ -19,6 +19,11 @@ set autoindent smartindent              " turn on auto/smart indenting
 set smarttab                            " make <tab> and <backspace> smarter
 set backspace=eol,start,indent          " allow backspacing over indent, eol, & start
 set foldlevel=99                        " start with folds open
+set wrap                                " Wrap lines
+set linebreak                           " Only break in sane places
+set nolist                              " Prevent list from breaking line breaks
+set textwidth=0
+set wrapmargin=0                      
 
 " Set up the colour scheme
 set background=dark
@@ -44,13 +49,20 @@ au BufRead,BufNewFile *.module set filetype=php
 au BufRead,BufNewFile *.install set filetype=php
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" Jump to most recent line in a file when opening
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+
 " Generic key mapping
 :nmap <leader>l :setlocal number!<CR>  " Toggle line numbers
 :nmap <leader>o :set paste!<CR>        " Toggle paste mode
 :nmap <C-e> :e#<CR>                    " Ctrl-e to toggle between last edited buffer and this one
 :nmap <C-n> :bnext<CR>                 " Ctrl-n to jump to the next buffer
 :nmap <C-p> :bprev<CR>                 " Ctrl-p to jump to the previous buffer
+" List open buffers to quickly jump
 :nnoremap <leader>l :ls<cr>:b<space>
+" List recent files
+:nmap ' :browse old<CR>
 
 " Configure search behaviour
 :set incsearch
@@ -82,3 +94,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " Syntastic Configuration
 :let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2' " Force Symfony2 standard
+:let g:syntastic_php_checkers=['php']                                 " Disable style checkers
+:let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2' " Force Symfony2 standard
+
+" Easymotion Configuration
