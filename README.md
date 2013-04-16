@@ -1,6 +1,15 @@
 # Installation
 
+```
+# Go home
+cd ~
+# Backup old .vim
+mv .vim .vim-old
+mv .vimrc .vimrc-old
+# Install new .vim
+git clone https://github.com/elyobo/vim.git .vim
 ln -s ~/.vim/vimrc ~/.vimrc
+```
 
 # Plugins
 
