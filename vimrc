@@ -54,7 +54,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 
 " Generic key mapping
-:nmap <leader>l :setlocal number!<CR>  " Toggle line numbers
+:nmap <leader>n :setlocal number!<CR>  " Toggle line numbers
 :nmap <leader>o :set paste!<CR>        " Toggle paste mode
 :nmap <C-e> :e#<CR>                    " Ctrl-e to toggle between last edited buffer and this one
 :nmap <C-n> :bnext<CR>                 " Ctrl-n to jump to the next buffer
