@@ -13,7 +13,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 # Plugins
 
-Plugins are managed with Pathogen.  Check out the plugin git source into ~/.vim/bundles, open vim and run :Helpfiles to build all docs.
+Plugins are managed with Pathogen.  It's recommended to use git submodules, but you can check out the plugin git source into ~/.vim/bundles, open vim and run :Helpfiles to build all docs.
 
 # Structure
 
