@@ -1,0 +1,1 @@
+../bundle/dart-vim-plugin/syntax/dart.vim
