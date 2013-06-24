@@ -48,6 +48,7 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 au BufRead,BufNewFile *.module set filetype=php
 au BufRead,BufNewFile *.install set filetype=php
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.less set filetype=css
 
 " Jump to most recent line in a file when opening
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
