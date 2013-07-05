@@ -9,6 +9,8 @@ mv .vimrc .vimrc-old
 # Install new .vim
 git clone https://github.com/elyobo/vim.git .vim
 ln -s ~/.vim/vimrc ~/.vimrc
+cd .vim
+git submodule update --init
 ```
 
 # Plugins
