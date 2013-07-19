@@ -49,6 +49,7 @@ au BufRead,BufNewFile *.module set filetype=php
 au BufRead,BufNewFile *.install set filetype=php
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.less set filetype=css
+au BufRead,BufNewFile *.json set filetype=json
 
 " Jump to most recent line in a file when opening
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -100,3 +101,4 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 :let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2' " Force Symfony2 standard
 :let g:syntastic_php_checkers=['php']                                 " Disable style checkers
 :let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2' " Force Symfony2 standard
+:let g:syntastic_json_checkers=['jsonlint']
