@@ -43,6 +43,7 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 
 " Additional file type mappings
 au BufRead,BufNewFile *.tpl set filetype=php
+au BufRead,BufNewFile *.phtml set filetype=php
 au BufRead,BufNewFile *.twig set syntax=htmljinja
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 au BufRead,BufNewFile *.module set filetype=php
