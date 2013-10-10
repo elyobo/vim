@@ -27,6 +27,7 @@ set wrapmargin=0
 
 " Set up the colour scheme
 set background=dark
+:let g:solarized_visibility="high"
 colorscheme solarized
 
 " Disregard these files for wildcard matches
@@ -103,3 +104,8 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 :let g:syntastic_php_checkers=['php']                                 " Disable style checkers
 :let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2' " Force Symfony2 standard
 :let g:syntastic_json_checkers=['jsonlint']
+
+" Vdebug settings
+:let g:vdebug_options = { 'port' : '9090' }
+:set colorcolumn=80
+
