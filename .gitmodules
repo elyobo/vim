@@ -54,7 +54,7 @@
 	url = https://github.com/dart-lang/dart-vim-plugin.git
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
-	url = git@github.com:elzr/vim-json.git
+	url = https://github.com/elzr/vim-json.git
 [submodule "bundle/vdebug"]
 	path = bundle/vdebug
 	url = https://github.com/joonty/vdebug.git
