@@ -11,7 +11,7 @@ set ofu=syntaxcomplete#Complete
 
 " Generic config
 syntax on                               " Enable syntax highlighting
-set fileencodings=utf-8,default,latin1  " Set file encoding priorities
+set fileencodings=utf-8,iso8859-11,default,latin1  " Set file encoding priorities
 set expandtab                           " use spaces, not tabs
 set tabstop=4                           " tabstops of 4
 set shiftwidth=4                        " indents of 4
@@ -81,6 +81,9 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Nerdtree Settings
 :nmap <leader>e :NERDTreeToggle<CR> " Toggle open on <leader>e
 
+" 'vintage' case statement indentation
+:let g:PHP_vintage_case_default_indent = 1
+
 " CtrlP Settings
 :let g:ctrlp_map = '<leader>t'                       " Open on <leader>t
 :let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$' " Don't scan VCS directories
@@ -115,3 +118,23 @@ else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
+" "Shell" command for opening shell output into a scratch buffer
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:    ' . a:cmdline)
+  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
+endfunction
