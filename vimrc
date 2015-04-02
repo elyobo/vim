@@ -108,6 +108,10 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 :let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2' " Force Symfony2 standard
 :let g:syntastic_json_checkers=['jsonlint']
 
+" Vim file selection tab completion
+set wildmode=longest,list,full
+set wildmenu
+
 " Vdebug settings
 :let g:vdebug_options = { 'port' : '9090' }
 
