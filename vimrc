@@ -94,6 +94,9 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 :nmap ; :CtrlPBuffer<CR>
 :nmap <leader>r ::CtrlPMRU<CR>
 
+" Limit mouse integration
+set mouse=c
+
 " Powerline Settings
 :set laststatus=2                          " Always show the statusline
 :let g:Powerline_colorscheme='solarized16' " Use solarized colours
