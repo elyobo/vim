@@ -95,7 +95,7 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 :nmap <leader>r ::CtrlPMRU<CR>
 
 " Limit mouse integration
-set mouse=c
+set mouse=
 
 " Powerline Settings
 :set laststatus=2                          " Always show the statusline
@@ -117,13 +117,6 @@ set wildmenu
 
 " Vdebug settings
 :let g:vdebug_options = { 'port' : '9090' }
-
-" Color column to indicate suggested max width
-if exists('+colorcolumn')
-    set colorcolumn=80
-else
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
 
 " "Shell" command for opening shell output into a scratch buffer
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
