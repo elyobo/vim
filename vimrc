@@ -25,6 +25,10 @@ set nolist                              " Prevent list from breaking line breaks
 set textwidth=0
 set wrapmargin=0                      
 
+" Store backup/swap files somewhere less annoying
+set backupdir=~/.vimdata/backup//
+set directory=~/.vimdata/swp//
+
 " Resize panes on window resize
 :autocmd VimResized * wincmd =
 
