@@ -25,6 +25,9 @@ set nolist                              " Prevent list from breaking line breaks
 set textwidth=0
 set wrapmargin=0                      
 
+" Resize panes on window resize
+:autocmd VimResized * wincmd =
+
 " Set up the colour scheme
 set background=dark
 :let g:solarized_visibility="high"
