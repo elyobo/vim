@@ -32,6 +32,7 @@ colorscheme solarized
 
 " Disregard these files for wildcard matches
 set wildignore=.git,.svn,*.swo,*.swp
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Autcompletion for a few file types
 autocmd FileType python set omnifunc=pythoncomplete#Complete
