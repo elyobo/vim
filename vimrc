@@ -35,6 +35,7 @@ set directory=~/.vimdata/swp//
 " Set up the colour scheme
 set background=dark
 :let g:solarized_visibility="high"
+:let g:solarized_termtrans=1
 colorscheme solarized
 
 " Disregard these files for wildcard matches
