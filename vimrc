@@ -34,13 +34,19 @@ set directory=~/.vimdata/swp//
 
 " Set up the colour scheme
 set background=dark
-:let g:solarized_visibility="high"
-:let g:solarized_termtrans=1
-colorscheme solarized
+" :let g:solarized_visibility="high"
+" :let g:solarized_termtrans=1
+" colorscheme solarized
+set t_Co=256
+" let g:sublimemonokai_term_italic = 1
+" colorscheme sublimemonokai
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
 
 " Disregard these files for wildcard matches
 set wildignore=.git,.svn,*.swo,*.swp
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_user_command = 'ag -U %s -l --nocolor --hidden -g ""'
+command! What echo synIDattr(synID(line('.'), col('.'), 1), 'name')
 
 " Allow JSX in JS files
 let g:jsx_ext_required = 0
@@ -110,9 +116,9 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 set mouse=
 
 " Powerline Settings
-:set laststatus=2                          " Always show the statusline
-:let g:Powerline_colorscheme='solarized16' " Use solarized colours
-:let g:Powerline_symbols='unicode'         " Use unicode symbols
+" :set laststatus=2                          " Always show the statusline
+" :let g:Powerline_colorscheme='solarized16' " Use solarized colours
+" :let g:Powerline_symbols='unicode'         " Use unicode symbols
 
 " PIV Configuration
 :let g:DisableAutoPHPFolding = 1           " Disable auto folding of PHP classes/methods/etc
@@ -150,3 +156,6 @@ function! s:RunShellCommand(cmdline)
   setlocal nomodifiable
   1
 endfunction
+
+hi Normal ctermbg=NONE guibg=NONE
+hi Comment cterm=italic gui=italic

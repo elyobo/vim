@@ -1,4 +1,9 @@
-set nowrap " Do not wrap lines, pythong max length is more strict
+set nowrap " Do not wrap lines, python max length is more strict
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " Color column to indicate suggested max width
 if exists('+colorcolumn')
