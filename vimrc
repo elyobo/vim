@@ -45,7 +45,7 @@ colorscheme vim-monokai-tasty
 
 " Disregard these files for wildcard matches
 set wildignore=.git,.svn,*.swo,*.swp
-let g:ctrlp_user_command = 'ag -U %s -l --nocolor --hidden -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 command! What echo synIDattr(synID(line('.'), col('.'), 1), 'name')
 
 " Allow JSX in JS files
